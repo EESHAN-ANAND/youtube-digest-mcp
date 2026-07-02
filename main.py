@@ -15,6 +15,7 @@ Reads your account read-only via auth.py; stores state in Neon via db.py.
 from datetime import date, datetime
 
 from fastmcp import FastMCP
+from googleapiclient.errors import HttpError
 
 from auth import get_youtube
 from db import get_conn, init_db
@@ -68,7 +69,13 @@ def _digest(keep) -> list[dict]:
     results = []
     with get_conn() as conn:
         for ch in channels:
-            for v in _recent_uploads(yt, ch["uploads_playlist_id"]):
+            # Some channels have no accessible uploads playlist (terminated,
+            # private, or empty) -> skip them instead of failing the whole run.
+            try:
+                recent = _recent_uploads(yt, ch["uploads_playlist_id"])
+            except HttpError:
+                continue
+            for v in recent:
                 if keep(_local_date(v["published_at"])):
                     seen = conn.execute(
                         "SELECT 1 FROM seen_videos WHERE video_id = %s",
