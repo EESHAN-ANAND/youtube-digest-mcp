@@ -1,0 +1,13 @@
+[project]
+name = "youtube-digest-mcp"
+version = "0.1.0"
+description = "MCP server that gives a daily digest of new uploads from your YouTube subscriptions"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=2.0.0",
+    "google-api-python-client>=2.100.0",
+    "google-auth-oauthlib>=1.2.0",
+    "google-auth>=2.30.0",
+    "psycopg[binary]>=3.1.0",
+    "python-dotenv>=1.0.0",
+]
