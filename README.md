@@ -10,16 +10,18 @@ No feed. No autoplay. No thumbnails engineered to hijack your attention. Just th
 
 ## Why this exists
 
-YouTube hosts some of the best explanatory material ever made — pure maths, orbital mechanics, monetary policy, competition climbing, machine learning, how companies actually work. It also hosts an industrial-scale outrage machine, and the same interface serves both.
+Everybody arrives at YouTube for something specific. One person wants trail routes and gear teardowns. Another wants quarterly earnings broken down properly, or fingerstyle guitar lessons, or restoration work, or Roman history, or how a gearbox is actually assembled. They find the channels that do it well and they subscribe.
 
-The problem isn't the content you subscribed to. It's everything the recommendation engine bolts on around it. You open the tab to catch one video from a channel you trust, and thirty minutes later you're deep in something you didn't choose, don't value, and won't remember.
+Subscribing is an explicit statement. *This is what I came for.*
 
-The subscriptions page was supposed to solve this. It doesn't — it's still a feed, still infinite, still ranked by engagement rather than by your intent.
+The platform takes that statement and then largely talks over it. The feed keeps filling with ragebait, manufactured controversy, and whatever the recommendation engine has learned will hold a thumb in place — not because anyone asked for it, but because engagement is what gets optimised, and outrage engages more reliably than a careful forty-minute explainer.
+
+The subscriptions page was supposed to be the fix. It isn't. It's still a ranked, infinite feed wrapped in the same machinery. You open it for one video and leave half an hour later having watched three things you didn't choose and won't remember.
 
 So this server skips the interface entirely. It reads your subscriptions through the YouTube Data API, checks which of those channels published today, and hands back a list. Titles and links. That's the whole product.
 
 **What you get:** the channels you deliberately chose.
-**What you don't get:** everything designed to keep you there.
+**What you don't get:** everything built to keep you scrolling past them.
 
 ---
 
